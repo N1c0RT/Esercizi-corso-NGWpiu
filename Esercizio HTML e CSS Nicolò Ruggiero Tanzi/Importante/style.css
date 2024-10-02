@@ -1,0 +1,98 @@
+*{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial sans-serif ;
+}
+
+
+h1{
+    color: purple;
+    background-color: bisque;
+    padding: 10px;
+    border: solid 2px purple;
+    border-radius: 25px;    
+}
+
+h1,h2,h3{
+    text-align: center;
+}
+
+img{
+    width: 700px;
+}
+
+
+form{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+@media (max-width:600px) {
+
+    form{
+        display: flex;
+        flex-direction: column;
+    }
+
+
+} 
+
+li{
+    font-size: larger;
+    color: purple;
+    background-color: bisque;
+    padding: 10px;
+    border: solid 2px purple;
+    border-radius: 25px;
+    margin: 10px;
+    text-align: center;
+}
+
+#dixitImg{
+    height: 500px;
+}
+
+
+#tabella1 th, #tabella1 td{
+    background-color: yellow;
+    border: solid 3px black;
+}
+
+#tabellaUscite{
+    text-align: center;
+}
+
+table{
+    
+    margin: 0 auto;
+    width: 50%;
+}
+
+#opinione{
+    text-align: center;
+}
+
+#scelta{
+    text-align: center;
+}
+
+#soloRegistrati{
+    color: red;
+    text-align: center;
+}
+
+.informazioni{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.linkInfo:hover{
+    color: green;
+}
+
+#registrazione :hover{
+    background-color: lightskyblue;
+
+}
+
+#preferenza:hover{
+    background-color: lightskyblue;
+}
