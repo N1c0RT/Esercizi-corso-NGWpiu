@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <header>
+
+    </header>
+
+    <main>
+        <h1>Terza parte</h1>
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <script>
+        //Prova delle condizioni
+        let numero = 1
+        if (numero < 5){
+            console.log("Il numero 1 è minore di 5")
+        }
+        if (numero < 6){
+            console.log("Il numero 1 è minore di 6")
+        }
+        if (numero > 5){
+            console.log("il numero 1 non è maggiore di 5")
+        }//Questo esito non uscirà mai poichè la condizione messa in analisi è falsa
+        //Per fare uscire questa condizione dovremo creare un ELSE che indica la possibilità di altri esiti
+        else if (numero > 10){
+            console.log("il numero è minore di 10")
+        }//Anche else if non viene stampato poichè la macchina dopo aver controllato la condizione capisce che questa alternativa non è vera e quindi non stampa questo esito
+        else {
+            console.log("Qualsiasi altro caso")
+        }//Questa condizione a differenza dell'ultimo if viene analizzata e dà come esito un console.log poichè viene effettivamente preso un 3o caso dove nè la prima condizione nè la seconda sono verificate
+
+        //Proviamo ad usare una variabile booleana
+        let valoreBooleano = true
+
+        if (valoreBooleano){
+            console.log("La condizione è effettivamente vera")
+        }
+
+        //Questa condizione sta chiedendo alla macchina di controllare se la variabile non sia vera o true
+        if (!valoreBooleano){
+            console.log("La condizione risulta falsa")
+        }
+
+    </script>
+
+</body>
+</html>

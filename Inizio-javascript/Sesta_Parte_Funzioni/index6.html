@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <header>
+
+    </header>
+
+    <main>
+        <h1>Sesta parte FUNZIONI</h1>
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <script src="utility.js"></script>
+
+    <script >
+        //Come definire una funzione
+
+        function somma(a,b){
+            let risultato = a + b
+            console.log(risultato) //Questa operazione stampa solamente a schermo
+            return risultato //Questa operazione invece salva il risultato in una nuova variabile
+        }
+
+        //Per utilizzare la funzione creata dobbiamo richiamarla 
+
+        somma(6,6)
+
+        let lista2 = [1,2,3,4,5]
+        let risultatoLista = sommaLista(lista2)
+        
+        //PROMPT richiediamo all'utente dei valori da usare nel codice
+         
+        //Costringiamo JavaScript a dare un tipo specifico al valore
+        let input = parseInt(prompt("Inserisci un numero"))
+        console.log(input)
+
+    </script>
+
+   
+
+</body>
+</html>
