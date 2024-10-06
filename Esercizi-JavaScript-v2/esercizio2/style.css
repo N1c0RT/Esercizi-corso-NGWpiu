@@ -1,0 +1,16 @@
+#nota-bene{
+    border: solid 2px red;
+    padding: 10px;
+    border-radius: 50px;
+    margin: 10px;
+}
+
+#form-registrazione{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#btn-registrazione{
+    margin-top: 10px;
+}

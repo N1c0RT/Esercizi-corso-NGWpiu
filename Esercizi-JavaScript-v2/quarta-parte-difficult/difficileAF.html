@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<!--FUNZIONI ASINCRONE-->
+<body>
+
+
+    <header></header>
+
+
+    <main>
+
+        <h1>FETCH</h1>
+
+        <button onclick="richiesta()">Connettiti</button>
+        <button onclick="richiesta_async()">Await</button>
+    </main>
+
+    <footer></footer>
+
+    <script>
+        //www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita
+        //ASYNC AWAIT  
+        //FUNZIONI ASYNC funzioni che aspettano
+
+        async function richiesta_async(){
+            let risposta = await fetch(
+                "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita"
+            );
+            let risposta_json = await risposta.json();
+            console.log(risposta_json);
+        }
+
+        //Funzione normale
+        function richiesta(){
+            //richiesta al server per ricevere
+            let risposta = fetch("https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita");
+
+            console.log(risposta);
+        }
+
+    </script>
+
+
+</body>
+</html>

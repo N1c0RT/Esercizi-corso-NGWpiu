@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>prove</title>
+		<meta-autor>Nicolò Ruggiero Tanzi</meta-autor>
+	</head>
+
+	<!--GLI ID si scrivono nome-nome-nome
+LE FUNZIONI si scrivono nomeNomeNome
+LE VARIABILI si scrivono nome_nome_nome-->
+
+	<body>
+		<header></header>
+
+		<main id="main">
+			<h1>Carrello della spesa</h1>
+		</main>
+
+		<footer></footer>
+
+		<script>
+			console.log("hello world!");
+
+			//Creiamo l'oggetto lista_Spesa (dizionario) che all'inizio sarà vuoto
+
+			const lista_Spesa = {};
+
+			//Creiamo le diverse funzioni
+
+			function aggiungiProdotto(dizionario) {
+				let richiesta_prodotto = prompt("Quale prodotto vorresti aggiungere?");
+				let richiesta_quantità = prompt(
+					"In quale quantità vorresti che il prodotto venga aggiunto al carrello?",
+				);
+
+				dizionario[richiesta_prodotto] = richiesta_quantità;
+			}
+
+			function eliminaProdotto(dizionario) {
+				let richiesta_eliminazione = prompt(
+					"Quale prodotto vorresti eliminare dalla spesa?",
+				);
+
+				delete dizionario[richiesta_eliminazione];
+			}
+
+			function visualizzaCarrello(dizionario) {
+				console.log(dizionario);
+			}
+
+			//Creiamo la visualizzazione sull'interfaccia
+
+			while (true) {
+				let richiesta_principale = prompt(
+					"Cosa vorresti fare nella tua lista? Le possibili scelte sono: Aggiungi, Rimuovi, Visualizza",
+				);
+
+				//Creiamo lo switch che prenderà in considerazione le diverse situazioni
+
+				switch (richiesta_principale) {
+					case "Aggiungi":
+						aggiungiProdotto(lista_Spesa);
+						break;
+
+					case "Rimuovi":
+						eliminaProdotto(lista_Spesa);
+						break;
+
+					case "Visualizza":
+						visualizzaCarrello(lista_Spesa);
+						break;
+
+					default:
+						break;
+				}
+			}
+		</script>
+	</body>
+</html>

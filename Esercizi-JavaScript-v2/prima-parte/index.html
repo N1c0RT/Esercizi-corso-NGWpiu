@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header></header>
+
+
+    <main></main>
+
+
+    <footer></footer>
+
+
+    <script>
+
+        const banca = {
+            nome: "Banca d'Italia",
+
+            valore: 1000,
+
+            lista_clienti: ['Andrea','Marco','Gianluca','Simone'],
+
+            stampaClienti: function(){
+
+                for (let i = 0; i<this.lista_clienti.length; i++){
+
+                    console.log(this.lista_clienti[i])
+
+                }    
+            },
+
+            rateizzazione: function(){
+
+                return this.valore / 12
+
+            },
+        }
+
+        //Metodi di stampa
+
+        console.log(banca.nome)
+
+        //Richiamo di metodi
+
+        banca.stampaClienti()
+
+        //Differenza tra console.log e return
+
+        //Creo una variabile nico, dò come valore la funzione stampaClienti e chiedo alla macchina di darmi il console log del valore effettivo che avrà nico
+
+        let nico = banca.stampaClienti()
+
+        console.log(nico)
+
+        /*In risposta sulla console non otterremo nulla poichè nella funzione stampaClienti non esiste un return, quindi nel momento in cui creo una variabile che si poggia su quella funzione il risultato dato sarà quello di "undefined" poichè nonostante la funzione potrebbe effettivamente calcolare qualcosa, l'esito di questo calcolo non verrebbe ricordato dalla macchina e quindi la macchina stessa ci informa che nico non ha un valore finale.*/
+
+        /*Diverso invece è il caso di rateizzazione visto che la funzione ha un comando return che li permette di ricordare il valore e quindi il risultato del calcolo svolto dalla funzione*/
+
+        let ale = banca.rateizzazione()
+
+        /*Questo console.log funziona poichè internamente alla funzione noi diciamo alla macchina di ricordarsi il valore calcolato quindi quando creeremo una variabile (in questo caso ale) quest'ultima mi stamperà un effettivo valore dato che la funzione presente in ale oltre che a svolgere il calcolo si ricorda anche l'esito di questo calcolo*/
+
+        console.log(ale)
+
+        /*Questi due console.log daranno lo stesso valore ma solo perchè questo sotto riprende direttamente il calcolo svolto all'interno dell'oggetto e quindi del dizionario perciò possiamo vederlo come il valore base che ha la banca con la funzione "rateizzazione"*/
+
+        console.log(banca.rateizzazione())
+
+        //Metodi di modifica
+
+        banca['valore'] = 2000
+
+        console.log(banca.valore)
+
+        console.log("-----------------------------------")
+
+        delete banca['valore']
+
+        console.log(banca)
+
+
+
+
+    </script>
+
+
+</body>
+</html>

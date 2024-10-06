@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+
+	<!--GLI ID si scrivono nome-nome-nome
+LE FUNZIONI si scrivono nomeNomeNome
+LE VARIABILI si scrivono nome_nome_nome-->
+
+	<body>
+		<header></header>
+
+		<main id="main">
+			<!--Identifichiamo il titolo-->
+			<h1 id="titolo-bello">TITOLO A CASO per prova</h1>
+
+			<button onclick="capsScritta()">Rendi la scritta CAPS</button>
+
+			<button onclick="cambioScritta()">Cambia la scritta</button>
+
+			<button onclick="aggiuntaScritta()">Aggiungi scritta</button>
+		</main>
+
+		<footer>
+			<div id="div-footer"></div>
+			<img
+				id="immagine-1"
+				src="sonic-buono.jpg"
+				alt="non disponibile"
+				width="200"
+				height="200"
+			/>
+
+			<button onclick="changeImage()">Cambia l'immagine qua sopra</button>
+
+			<button onclick="changeBackground()">Cambia lo sfondo del main</button>
+		</footer>
+
+		<script>
+			//Gli event listener si mettono sempre subito sotto il tag script
+
+			let h1 = document.getElementById("titolo-bello");
+			h1.addEventListener("click", function () {
+				console.log("Hai cliccato l'h1");
+			});
+
+			let immagine = document.getElementById("immagine-1");
+			immagine.addEventListener("mouseenter", changeImage);
+			immagine.addEventListener("mouseleave", function () {
+				immagine.setAttribute("src", "sonic-buono.jpg");
+			});
+
+			//------------------------------------------------
+
+			function capsScritta() {
+				let h1 = document.getElementById("titolo-bello");
+				h1.innerText = h1.innerText.toUpperCase();
+			}
+
+			function cambioScritta() {
+				let h1 = document.getElementById("titolo-bello");
+				h1.innerText = "Un qualcosa di diverso";
+			}
+
+			function aggiuntaScritta() {
+				let scritta_nuova = document.createElement("h1");
+				scritta_nuova.innerText = "Hello world";
+				document.getElementById("div-footer").appendChild(scritta_nuova);
+			}
+
+			function changeBackground() {
+				let main = document.getElementById("main");
+				main.style.backgroundColor = "red";
+			}
+
+			function changeImage() {
+				let immagine_1 = document.getElementById("immagine-1");
+				immagine_1.setAttribute("src", "shadow-bad.jpg");
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Form page</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+
+	<!--GLI ID si scrivono nome-nome-nome
+LE FUNZIONI si scrivono nomeNomeNome
+LE VARIABILI si scrivono nome_nome_nome-->
+
+	<body>
+		<header></header>
+
+		<main>
+			<h1>Pagina di registrazione</h1>
+			<br />
+			<h2>Registrati nel form qui sotto per diventare membro del club!</h2>
+
+			<div id="nota-bene">
+				<h3>Prima di registrarti</h3>
+				<!--Regole generali-->
+				<p>
+					1) Accertati di aver riempito tutti i campi sottostanti o la
+					registrazione non verrà completata;
+					<br />
+					2) Nel campo username fornisci il nome con il quale gli altri utenti
+					dovrebbero visualizzare il tuo profilo;
+					<br />
+					3) Il campo data di nascita va compilato in questo modo: gg/mm/aaaa,
+					nel caso in cui il campo non venga compilato correttamente il sito
+					accetterà la scrittura ma la mail non verrà effettivamente registrata;
+					<br />
+					4) Si consiglia fortemente di creare una password che contenga sia
+					lettere che numeri e almeno un carattere speciale ( !, $, ?, &, %) per
+					garantire una sicurezza maggiore.
+				</p>
+			</div>
+
+			<!--Creazione del form con i vari input-->
+
+			<form id="form-registrazione">
+				<p>Il tuo nome:</p>
+				<input type="text" name="name" placeholder="Il tuo nome" id="name" />
+
+				<p>Username (leggi il campo "Prima di registrarti"):</p>
+				<input
+					type="text"
+					name="username"
+					placeholder="Username"
+					id="username"
+				/>
+
+				<p>Data di nascita (leggi il campo "Prima di registrarti"):</p>
+				<input type="date" name="dataN" placeholder="gg/mm/aaaa" id="dataN" />
+
+				<p>La tua E-mail:</p>
+				<input
+					type="email"
+					name="email"
+					placeholder="La tua E-mail"
+					id="email"
+				/>
+
+				<p>La tua password (leggi il campo "Prima di registrarti"):</p>
+				<input
+					type="password"
+					name="password"
+					placeholder="Password"
+					id="password"
+				/>
+
+				<br />
+
+				<!--Spazio per inserire le credenziali una volta passate alla macchina-->
+				<button type="submit" id="btn-registrazione">Registrati!</button>
+
+				<div id="credenziali-utente"></div>
+			</form>
+		</main>
+
+		<footer></footer>
+
+		<script>
+			console.log("prova");
+
+			/*Prendo le informazioni del form e del div vuoto all'interno del main per gestirle nello script*/
+
+			let form_1 = document.getElementById("form-registrazione");
+			let div_1 = document.getElementById("credenziali-utente");
+
+			/*Creo una funzione la quale al suo interno crea un oggetto dizionario che conterrà tutti i valori inseriti dall'utente per la registrazione*/
+
+			form_1.addEventListener("submit", function () {
+				event.preventDefault();
+
+				/*Creo la funzione di stampa in console ma lo faccio creandomi già i contenitori dei valori poichè dopo dovrò anche far uscire a schermo la scritta da aggiungere nel div vuoto del sito*/
+
+				const nome_utente = document.getElementById("name").value;
+				console.log(`Nome utente: ${nome_utente}`);
+
+				const username = document.getElementById("username").value;
+				console.log(`Username utente: ${username}`);
+
+				const data_nascita = document.getElementById("dataN").value;
+				console.log(`Data di nascita dell'utente: ${data_nascita}`);
+
+				const email = document.getElementById("email").value;
+				console.log(`E-mail utente: ${email}`);
+
+				const password = document.getElementById("password").value;
+				console.log(`Password utente: ${password}`);
+
+				/*Creiamo un'azione di prevenzione nel caso in cui l'utente non avesse completato un qualsiasi campo. Anche in questo caso crearsi prima le costanti con i valori all'interno mi agevolerà di molto la scrittura dell'if*/
+
+				/*Se uno di questi campi dovesse risultare vuoto, partirebbe in console l'avviso di errore, creo un unico if con diverse condizioni grazie all'operatore logico OR (||)*/
+
+				if (
+					nome_utente === "" ||
+					username === "" ||
+					data_nascita === "" ||
+					email === "" ||
+					password === ""
+				) {
+					console.log(
+						"Deve esserci stato un errore. Controlla che ogni campo sia stato specificato correttamente",
+					);
+					return; // Il return mi fa uscire dalla funzione
+				}
+
+				//Modifico il div che informerà all'utente che l'operazione si è conclusa
+
+				div_1.innerHTML = `
+                <h1>Benvenuto!</h1>
+                <br>
+                <p>${username}`;
+			});
+		</script>
+	</body>
+</html>
