@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Registrazione</title>
+	</head>
+	<body>
+		<header></header>
+
+		<main>
+			<h1>Pagina di accesso</h1>
+
+			<input type="text" id="username" placeholder="Username" />
+			<input type="text" id="password" placeholder="Password" />
+
+			<button onclick="accesso()">Accedi</button>
+		</main>
+
+		<footer></footer>
+
+		<script>
+			function accesso() {
+				let input_user = document.getElementById("username").value;
+				let input_password = document.getElementById("password").value;
+
+				const utente = {
+					username: input_user,
+					password: input_password,
+				};
+
+				if (input_user != "" && input_password != "") {
+					localStorage.setItem("utente", JSON.stringify(utente));
+
+					window.location.href = "pagina-piatti.html";
+				} else {
+					alert(
+						"Ci dev'essere stato un errore... Controlla che tutti i campi siano stati compilati.",
+					);
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,6 @@
+I file o gli oggetti con formato JSON sono semplici da leggere per gli umani e da processare per le e macchine e vengono utilizzati principalmente per trasferire dati tra il client e il server.
+
+Siamo noi che trasformiamo il flusso di dati precedentemente inviati in bit in formato JSON tramitr la funzione nome.json()
+
+
+Esiste una proprietà di JavaScript chiamata localStorage che ci permette di conservare i dati di una pagina nella memoria del browser permettendoci di conservarli e di non farli cancellare

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>LocalStorage</title>
+	</head>
+	<body>
+		<header></header>
+		<main>
+			<h1>LocalStorage</h1>
+
+			<h2>Login</h2>
+
+			<input type="text" id="campo-login" placeholder="nome utente" />
+
+			<input type="text" id="password" placeholder="password" />
+
+			<button onclick="accedi_dash()">Accedi</button>
+		</main>
+		<footer></footer>
+		<script>
+			function accedi_dash() {
+				let input = document.getElementById("campo-login").value;
+				let input_pass = document.getElementById("password").value;
+
+				const utente = {
+					username: input,
+					password: input_pass,
+				};
+
+				if (input != "") {
+					//Salviamo il valore che ci viene dato nel LocalStorage
+
+					//Lo facciamo grazie alla funzione setItem
+
+					//La funnzione richiede una chiave che sarà il nome del campo e il valore che verrà inserito dall'utente
+
+					localStorage.setItem("utente", JSON.stringify(utente));
+
+					//Successivamente cambiamo la locazione
+					window.location.href = "dashboard.html";
+				}
+			}
+		</script>
+	</body>
+</html>

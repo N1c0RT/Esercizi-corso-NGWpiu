@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Meteo</title>
+	</head>
+	<body>
+		<header></header>
+
+		<main>
+			<p>Di quale città vorresti controllare il meteo?</p>
+
+			<input type="text" id="citta-scelta" />
+			<button onclick="ricerca_meteo()">Cerca</button>
+
+			<section id="risposta-server"></section>
+		</main>
+
+		<footer></footer>
+
+		<script>
+			async function ricerca_meteo() {
+				let citta_scelta = document.getElementById("citta-scelta").value;
+
+				let ricerca_server = await fetch(
+					`http://api.weatherapi.com/v1/current.json?key=c2550c4e7c864f5faeb131257240710&q=${citta_scelta}&aqi=no`,
+				);
+
+				let risposta_finale = await ricerca_server.json();
+				console.log("risposta-finale");
+
+				let div_risposta = document.createElement("div");
+				let luogo = document.createElement("p");
+				let condizione = document.createElement("p");
+				let immagine = document.createElement("img");
+
+				luogo.innerHTML = risposta_finale.location.name;
+
+				condizione.innerHTML = risposta_finale.current.condition.text;
+
+				immagine.src = risposta_finale.current.condition.icon;
+				immagine.width = 200;
+				immagine.height = 300;
+
+				div_risposta.appendChild(luogo);
+				div_risposta.appendChild(condizione);
+				div_risposta.appendChild(immagine);
+
+				document.getElementById("risposta-server").appendChild(div_risposta);
+			}
+		</script>
+	</body>
+</html>

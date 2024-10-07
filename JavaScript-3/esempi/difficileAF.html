@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+
+	<!--FUNZIONI ASINCRONE-->
+	<body>
+		<header></header>
+
+		<main>
+			<h1>FETCH</h1>
+
+			<input type="text" id="campo-drink" />
+
+			<button onclick="richiesta_async()">Connettiti</button>
+
+			<!-- Per tutta la lunghezza della lista di oggetti cocktail creami una card html e incollamela nella funzione-->
+
+			<section id="sezione-drink"></section>
+		</main>
+
+		<footer></footer>
+
+		<script>
+			//www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita
+			//ASYNC AWAIT
+			//FUNZIONI ASYNC funzioni che aspettano
+			async function richiesta_async() {
+				let valore_utente = document.getElementById("campo-drink").value;
+
+				let risposta = await fetch(
+					`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${valore_utente}`,
+				);
+				let lista_drink = await risposta.json();
+				console.log(lista_drink.drinks);
+
+				crea_card_drink(lista_drink.drinks);
+			}
+
+			//Funzione normale
+			function crea_card_drink(lista_drink) {
+				for (let i = 0; i < lista_drink.length; i++) {
+					let div = document.createElement("div");
+					let hNomeCocktail = document.createElement("h3");
+					let imageCocktail = document.createElement("img");
+					let istruzioniCocktail = document.createElement("p");
+
+					/*Qui sto dicendo che il campo hNomeCocktail all'interno verrà riempito dal campo dell'API che specifichiamo noi attraverso la variabile i, praticamente diciamo che il valore i appartenente alla lista drink si deve fermare in un campo specifico datoci dall'API in questo caso str.Drink.*/
+
+					//La sintassi è da leggere con Per ogni...
+
+					hNomeCocktail.innerHTML = lista_drink[i].strDrink;
+
+					imageCocktail.src = lista_drink[i].strDrinkThumb;
+					imageCocktail.width = 200;
+					imageCocktail.height = 300;
+
+					istruzioniCocktail.innerHTML = lista_drink[i].strInstructions;
+
+					div.appendChild(hNomeCocktail);
+					div.appendChild(imageCocktail);
+					div.appendChild(istruzioniCocktail);
+
+					document.getElementById("sezione-drink").appendChild(div);
+				}
+			}
+		</script>
+	</body>
+</html>

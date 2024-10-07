@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Piatti</title>
+	</head>
+	<body>
+		<header></header>
+
+		<main>
+			<h1>Lista di piatti</h1>
+
+			<h2>
+				Benvenuto
+				<span id="nome-a-schermo"></span>
+			</h2>
+
+			<p>Quale piatto vorresti vedere?</p>
+
+			<input type="text" id="scelta-piatti" />
+			<button onclick="ricerca_async()">Cerca</button>
+
+			<section id="sezione-piatti"></section>
+		</main>
+
+		<footer></footer>
+
+		<script>
+			if (localStorage.getItem("utente") == null) {
+				window.location.href = "esercizio.html";
+			}
+
+			async function ricerca_async() {
+				let piatto_scelto = document.getElementById("scelta-piatti").value;
+
+				let ricerca = await fetch(
+					`https://www.themealdb.com/api/json/v1/1/search.php?s=${piatto_scelto}`,
+				);
+
+				let lista_piatti = await ricerca.json();
+				console.log("lista_piatti");
+
+				crea_card_piatti(lista_piatti.meals);
+			}
+
+			function crea_card_piatti(lista_piatti) {
+				for (let i = 0; i < lista_piatti.length; i++) {
+					let div_piatti = document.createElement("div");
+					let nome_piatto = document.createElement("h3");
+					let provenienza = document.createElement("h4");
+					let immagine_piatto = document.createElement("img");
+					let preparazione = document.createElement("p");
+
+					nome_piatto.innerHTML = lista_piatti[i].strMeal;
+
+					provenienza.innerHTML = lista_piatti[i].strArea;
+
+					immagine_piatto.src = lista_piatti[i].strMealThumb;
+					immagine_piatto.width = 200;
+					immagine_piatto.height = 300;
+
+					preparazione.innerHTML = lista_piatti[i].strInstructions;
+
+					div_piatti.appendChild(nome_piatto);
+					div_piatti.appendChild(provenienza);
+					div_piatti.appendChild(immagine_piatto);
+					div_piatti.appendChild(preparazione);
+
+					document.getElementById("sezione-piatti").appendChild(div_piatti);
+				}
+			}
+
+			let utenteN = JSON.parse(localStorage.getItem("utente"));
+
+			document.getElementById("nome-a-schermo").innerHTML = utente.username;
+		</script>
+	</body>
+</html>

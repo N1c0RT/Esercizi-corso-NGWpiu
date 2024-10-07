@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<header></header>
+		<main>
+			<h1>Pagina di dashboard</h1>
+			<h2>
+				Benvenuto <br />
+				<span id="nome-utente"></span>
+			</h2>
+
+			<button onclick="logout_to_index()">Logout</button>
+		</main>
+		<footer></footer>
+		<script>
+			if (localStorage.getItem("utente") == null) {
+				//Se il campo utente è vuoto non può trovarsi sulla dashboard perciò lo porto direttamente alla pagina principale
+				window.location.href = "index.html";
+			}
+			function logout_to_index() {
+				//Prima di trasferirmi rimuovo gli elementi presenti nel LocalStorage
+				localStorage.removeItem("utente");
+
+				window.location.href = "index.html";
+			}
+
+			//Prendiamo il LocalStorage dell'index
+			//Usiamo la funzione getItem
+
+			let utente = JSON.parse(localStorage.getItem("utente"));
+
+			//Prendo lo span e lo riempio col valore del local storage cercato tramite il getItem
+
+			document.getElementById("nome-utente").innerHTML =
+				utente.username + " " + utente.password;
+		</script>
+	</body>
+</html>
