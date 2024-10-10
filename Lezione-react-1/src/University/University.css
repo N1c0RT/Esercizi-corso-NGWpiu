@@ -1,0 +1,15 @@
+#university{
+    margin-top: 10px;
+}
+
+#tabellaUni{
+    border: solid 2px #33CA7F;
+}
+
+td, th{
+    border: solid 2px #33CA7F;
+}
+
+#name, #webP{
+    text-align: center;
+}

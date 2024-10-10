@@ -1,0 +1,21 @@
+#gameId{
+    margin-bottom: 70px; 
+    text-align: center; 
+    background-color: #ECE4B7; 
+    padding: 20px; 
+    display: flex; 
+    flex-direction: column; 
+    border: solid 2px #33CA7F;
+    border-radius: 20px;
+}
+
+#divBtn{
+
+    align-items: flex-start;
+    
+}
+
+.sceltaBtn{
+
+    margin: 10px;
+}
