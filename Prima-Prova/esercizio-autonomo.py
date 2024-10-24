@@ -114,8 +114,8 @@ def scarica_tutti_i_documenti(driver):
         for link in document_links:
 
             document_url = link.get_attribute('href')
-            driver.execute_script("window.open(argument[0]);", document_url)
             logging.info(f"Documento scaricato da: {document_url}")
+            driver.get(document_url)
             time.sleep(2)
 
         logging.info("Download completato.")
